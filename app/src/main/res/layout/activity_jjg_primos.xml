@@ -24,16 +24,21 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/testView1"
-                android:layout_width="260dp"
-                android:layout_height="wrap_content" />
-
             <Button
                 android:id="@+id/button1"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:text="pulsa" />
+
+            <EditText
+                android:id="@+id/textView1"
+                android:layout_width="401dp"
+                android:layout_height="43dp" />
+
+            <EditText
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </LinearLayout>
 
