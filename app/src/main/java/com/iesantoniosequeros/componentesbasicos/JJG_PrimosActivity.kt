@@ -1,6 +1,7 @@
 package com.iesantoniosequeros.componentesbasicos
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -11,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 class JJG_PrimosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
         setContentView(R.layout.activity_jjg_primos)
         val pulsar = this.findViewById<Button>(R.id.button1)
         val entrada = this.findViewById<TextView>(R.id.textView2)
@@ -37,20 +38,17 @@ class JJG_PrimosActivity : AppCompatActivity() {
         pulsar.setOnClickListener {
             val inputText = entrada.text.toString()
             val n = inputText.toInt()
-
             val primes = searchPrimesRecursive(n - 1)
+
+            Log.i("ESTADOS", "Números primos hasta $n: $primes")
 
             resultado.text = primes.toString()
         }
 
-            ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-                val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-                insets
 
             }
         }
-    }
+
 
 
 
