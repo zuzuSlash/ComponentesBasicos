@@ -1,5 +1,6 @@
 package com.iesantoniosequeros.componentesbasicos
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -16,7 +17,6 @@ class JJG_PrimosActivity : AppCompatActivity() {
         setContentView(R.layout.activity_jjg_primos)
         val pulsar = this.findViewById<Button>(R.id.button1)
         val entrada = this.findViewById<TextView>(R.id.textView2)
-        val resultado = this.findViewById<TextView>(R.id.textView1)
 
         fun isPrime(n: Int): Boolean {
             if (n < 2) return false
@@ -40,11 +40,13 @@ class JJG_PrimosActivity : AppCompatActivity() {
             val n = inputText.toInt()
             val primes = searchPrimesRecursive(n - 1)
 
-            Log.i("ESTADOS", "Números primos hasta $n: $primes")
+            val resultIntent = Intent().apply {
+                putIntegerArrayListExtra("primos", ArrayList(primes))
+            }
+            setResult(RESULT_OK, resultIntent)
 
-            resultado.text = primes.toString()
+            finish()
         }
-
 
             }
         }
